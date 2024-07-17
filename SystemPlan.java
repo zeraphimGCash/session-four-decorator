@@ -2,7 +2,7 @@
 
 public interface SystemPlan {
 
-    public void getSystemDetails();
+    public String getSystemDetails();
     public int getSystemCost();
 
 }

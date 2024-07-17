@@ -11,9 +11,10 @@ class VloggingSetup extends SystemDecorator {
         // Cost of vlogging setup decorator is 25, add to the total cost of the system
     }
 
-    public void getSystemDetails() {
+    public String getSystemDetails() {
         this.c1.getSystemDetails();
         System.out.println("Security System");
+        return "Security System";
         // In theory adds Security System
     }
 

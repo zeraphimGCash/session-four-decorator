@@ -12,9 +12,10 @@ class EquipmentSetup extends SystemDecorator {
         // Cost of decorator is 25, it is added to the system cost
     }
 
-    public void getSystemDetails() {
+    public String getSystemDetails() {
         this.c1.getSystemDetails();
         System.out.println("Nitro Boost System");
+        return "Nitro Boost System";
         // In theory adds Nitro Boost System
     }
 

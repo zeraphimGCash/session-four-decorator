@@ -11,7 +11,8 @@ public class VoiceSetup implements SystemPlan {
         return this.cost;
     }
 
-    public void getSystemDetails() {
+    public String getSystemDetails() {
         System.out.println("Basic Default system of the Bike");
+        return "Basic Default system of the Bike";
     }
 }

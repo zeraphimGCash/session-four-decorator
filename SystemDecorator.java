@@ -12,8 +12,9 @@ abstract class SystemDecorator implements SystemPlan {
         return c1.getSystemCost();
     }
 
-    public void getSystemDetails() {
-        c1.getSystemDetails();
+    public String getSystemDetails() {
+        System.out.println(c1.getSystemDetails());
+        return c1.getSystemDetails();
     }
 
 }

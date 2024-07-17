@@ -10,7 +10,7 @@ public class AudioSetup implements SystemPlan {
         return this.cost;
     }
 
-    public void getSystemDetails() {
-        System.out.println("Basic Default system of hi the adapter.Car");
+    public String getSystemDetails() {
+        return "Basic Default system of hi the adapter.Car";
     }
 }
