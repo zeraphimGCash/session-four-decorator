@@ -12,41 +12,47 @@ public class DecoratorTest {
         Assert.assertEquals(c1.getClass(), b1.getClass());
     }
 
+    // Tests the getSystemDetails method of a SystemPlan object that implements AudioSetup and no other components
     @Test
     public void testSystemPlanWithNoComponents() {
-        SystemPlan c4 = new AudioSetup();
+        SystemPlan c2 = new AudioSetup();
         String expectedDescription = "Basic Default system of hi the adapter.Car";
+        Assert.assertEquals(expectedDescription, c2.getSystemDetails());
+    }
+
+    // Tests the system cost calculation for a SystemPlan that implements AudioSetup and no other components
+    @Test
+    public void testSystemPlanCostWithNoComponents() {
+        SystemPlan c3 = new AudioSetup();
+        double expectedCost = 250; // assume cost for AudioSetup
+        Assert.assertEquals(expectedCost, c3.getSystemCost(), 0.01);
+    }
+
+    // Tests the getSystemDetails method of a SystemPlan object that implements VloggingSetup, StreamingSetup, and AudioSetup
+    @Test
+    public void testSystemPlanWithMultipleVloggingSetups() {
+        SystemPlan c4 = new VloggingSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
+        String expectedDescription = "Security System";
         Assert.assertEquals(expectedDescription, c4.getSystemDetails());
     }
 
+    // Tests the getSystemDetails method of a SystemPlan object that implements EquipmentSetup, VloggingSetup, StreamingSetup and AudioSetup
     @Test
-    public void testSystemPlanCostWithNoComponents() {
-        SystemPlan c4 = new AudioSetup();
-        double expectedCost = 250; // assume cost for AudioSetup
-        Assert.assertEquals(expectedCost, c4.getSystemCost(), 0.01);
-    }
-
-    @Test
-    public void testSystemPlanWithMultipleVloggingSetups() {
-        SystemPlan c5 = new VloggingSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
-        String expectedDescription = "Security System";
+    public void testSystemPlanWithEquipmentAndVloggingSetups() {
+        SystemPlan c5 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
+        String expectedDescription = "Nitro Boost System";
         Assert.assertEquals(expectedDescription, c5.getSystemDetails());
     }
 
+    // Tests the getSystemDetails method of a SystemPlan object that implements StreamingSetup and AudioSetup
     @Test
-    public void testSystemPlanWithEquipmentAndVloggingSetups() {
-        SystemPlan c6 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
-        String expectedDescription = "Nitro Boost System";
+    public void testSystemPlanWithStreamingSetupOnly() {
+        SystemPlan c6 = new StreamingSetup(new AudioSetup());
+        String expectedDescription = "Auto Pilot System";
         Assert.assertEquals(expectedDescription, c6.getSystemDetails());
     }
 
-    @Test
-    public void testSystemPlanWithStreamingSetupOnly() {
-        SystemPlan c7 = new StreamingSetup(new AudioSetup());
-        String expectedDescription = "Auto Pilot System";
-        Assert.assertEquals(expectedDescription, c7.getSystemDetails());
-    }
-
+    // Tests the system cost calculation of a SystemPlan object that implements StreamingSetup and AudioSetup
     @Test
     public void testSystemPlanCostWithStreamingSetupOnly() {
         SystemPlan c7 = new StreamingSetup(new AudioSetup());
