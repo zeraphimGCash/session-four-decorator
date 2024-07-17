@@ -3,6 +3,8 @@ import org.junit.Test;
 
 public class DecoratorTest {
 
+//    Simply test the object type of the decorated objects
+//    Expected behavior: the two objects should be equal and of object type of the outermost decorator wrapping
     @Test
     public void testObjectTypes(){
         SystemPlan c1 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
@@ -60,6 +62,8 @@ public class DecoratorTest {
         Assert.assertEquals(expectedCost, c7.getSystemCost(), 0.01);
     }
 
+//    Test if the order of wrapping of decorators on concrete classes changes the behavior and class of the concrete obj
+//    Expected behavior: The concrete obj should behave the same regardless of wrapping order
     @Test
     public void testOrder(){
         SystemPlan o1 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
