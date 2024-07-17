@@ -1,3 +1,6 @@
+// Can be added to a basic audio setup
+// Implements the `SystemPlan` interface
+
 public class VoiceSetup implements SystemPlan {
     int cost;
     VoiceSetup() {

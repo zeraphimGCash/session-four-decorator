@@ -1,3 +1,6 @@
+// Implements `SystemPlan` interface
+// Used to add additional behavior to SystemPlan object
+
 abstract class SystemDecorator implements SystemPlan {
     SystemPlan c1;
 
