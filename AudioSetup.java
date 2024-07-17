@@ -1,3 +1,6 @@
+// represents a basic audio setup system
+// implements `SystemPlan` interface
+
 public class AudioSetup implements SystemPlan {
     int cost;
     AudioSetup() {
