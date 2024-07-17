@@ -6,6 +6,7 @@ public class AudioSetup implements SystemPlan {
     AudioSetup() {
         this.cost = 250;
     }
+
     public int getSystemCost() {
         return this.cost;
     }

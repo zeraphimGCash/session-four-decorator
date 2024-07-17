@@ -7,6 +7,8 @@ public class DecoratorTest {
     public void testObjectTypes(){
         SystemPlan c1 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
         SystemPlan b1 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new VoiceSetup())));
+        System.out.println(c1.getClass());
+        System.out.println(b1.getClass());
         Assert.assertEquals(c1.getClass(), b1.getClass());
     }
 
@@ -50,5 +52,16 @@ public class DecoratorTest {
         SystemPlan c7 = new StreamingSetup(new AudioSetup());
         double expectedCost = 325; // assume costs for StreamingSetup and AudioSetup
         Assert.assertEquals(expectedCost, c7.getSystemCost(), 0.01);
+    }
+
+    @Test
+    public void testOrder(){
+        SystemPlan o1 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
+        SystemPlan o2 = new VloggingSetup(new EquipmentSetup(new StreamingSetup(new AudioSetup())));
+        System.out.println("o1 class: " + o1.getClass());
+        System.out.println("o2 class: " + o2.getClass());
+        System.out.println("o1 cost: " + o1.getSystemCost());
+        System.out.println("o2 cost: " + o2.getSystemCost());
+        Assert.assertEquals(o1.getSystemCost(), o2.getSystemCost());
     }
 }
