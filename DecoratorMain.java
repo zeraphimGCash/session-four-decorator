@@ -10,11 +10,16 @@ class DecoratorMain
 	{	
         try
         {
-            // Creates a SystemPlan object that is wrapped around each other to form a chain of decoratrs. Each decorator class adds its own behavior to the system plan. 
+            // Creates a SystemPlan object that is wrapped around each other to form a chain of decoratrs. Each decorator class adds its own behavior to the system plan.
+
+            System.out.println("\n\nOBJECT 1:\n");
             SystemPlan c1 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new AudioSetup())));
             // Shows the total cost of the system
             System.out.println("Total cost of the system is " + c1.getSystemCost());
             c1.getSystemDetails();
+            System.out.println("=".repeat(50));
+
+            System.out.println("\n\nOBJECT 2:\n");
             SystemPlan b1 = new EquipmentSetup(new VloggingSetup(new StreamingSetup(new VoiceSetup())));
             System.out.println("Total cost of the system is " + b1.getSystemCost());
             b1.getSystemDetails();
